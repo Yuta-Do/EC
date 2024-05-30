@@ -1,0 +1,320 @@
+/* 共通部分 */
+header {
+    background-color: #f0f8ff;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    padding-left: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+header .logout_btn{
+    margin-left: auto;
+    padding-right: 20px;
+    margin-right: 0;
+}
+
+header a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header a:hover {
+    color: #007bff;
+}
+
+body {
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    overflow-x: hidden; 
+    box-sizing: border-box;
+}
+
+h1, h2 {
+    color: #333;
+    padding-left: 20px;
+}
+
+/* index,login,signup共通 */
+.form_main{
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_main .btn {
+    display: block;
+    width: 20%;
+    padding: 10px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.form_main .btn-primary {
+    background-color: #007bff;
+    width: 24%;
+}
+
+.form_main .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.form_main .btn-secondary {
+    background-color: #6c757d;
+}
+
+.form_main .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.form_main form {
+    width: 100%;
+    max-width: 500px;
+}
+
+.form_main form div {
+    margin-bottom: 15px;
+}
+
+.form_main form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form_main form input[type="text"],
+.form_main form input[type="password"],
+.form_main form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.form_main .form-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+.form_main .form-actions .btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #fff;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.form_main .mt-3 {
+    margin-top: 1rem;
+}
+
+/* producr_list.html,cart.html　共通部分 */
+.site_main{
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 70px;
+    box-sizing: border-box;
+}
+
+/* product_list.html */
+.product_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+
+.product_list li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 0 0 350px; 
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.product_list li h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.product_list li form {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.product_list li form input[type="number"] {
+    width: 100px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.product_list li form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.product_list li form button:hover {
+    background-color: #0056b3;
+}
+
+/* cart.html */
+.cart {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.cart th, .cart td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: right;
+    word-wrap: break-word;
+}
+
+.cart th {
+    background-color: #f8f9fa;
+    text-align: center;
+}
+
+.cart td:first-child, .cart td:last-child {
+    text-align: center;
+}
+
+.cart th.product, .cart td.product {
+    width: 30%;
+}
+
+.cart th.price, .cart td.price {
+    width: 15%;
+}
+
+.cart th.quantity, .cart td.quantity {
+    width: 15%;
+}
+
+.cart th.total, .cart td.total {
+    width: 20%;
+}
+
+.cart th.delete, .cart td.delete {
+    width: 10%;
+}
+
+.cart td button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 80px;
+}
+
+.cart td button:hover {
+    background-color: #c82333;
+}
+
+/* レスポンシブ対応 */
+@media screen and (max-width: 768px) {
+    header {
+        padding-left: 10px;
+    }
+
+    h1, h2 {
+        padding-left: 10px;
+    }
+
+    .product_list {
+        justify-content: flex-start; 
+    }
+
+    .product_list li {
+        flex: 0 0 calc(50% - 30px); 
+    }
+
+    .product_list li form input[type="number"] {
+        width: 80px; 
+    }
+
+    .cart {
+        font-size: 0.9rem; 
+    }
+
+    .cart th, .cart td {
+        padding: 5px; 
+    }
+
+    .cart td button {
+        padding: 5px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .product_list {
+        justify-content: flex-start; 
+    }
+
+    .product_list li {
+        flex: 0 0 calc(100% - 20px); 
+    }
+
+    .product_list li form input[type="number"] {
+        width: 60px;
+    }
+
+    .cart th, .cart td {
+        font-size: 0.8rem; 
+        padding: 3px; 
+    }
+
+    .cart td button {
+        font-size: 0.8rem; 
+        padding: 3px; 
+    }
+}

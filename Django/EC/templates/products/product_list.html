@@ -1,0 +1,33 @@
+<!-- products/templates/products/product_list.html -->
+{% extends 'base.html' %}
+
+{% block header %}
+<header>
+    <a href="{% url 'cart:cart' %}">>> カートを見る</a>
+    <div class="logout_btn">
+        <a href="{% url 'accounts:logout' %}">ログアウト</a> 
+    </div>
+</header>
+{% endblock %}
+
+{% block main %}
+<main class="site_main">
+    <h1>商品リスト</h1>
+    {% for category, products in products_by_category.items %}
+    <h2>{{ category.name }}</h2>
+    <ul class="product_list">
+        {% for product in products %}
+        <li>
+            <h3>{{ product.name }} - {{ product.price }}円</h3>
+            <form method="post" action="{% url 'cart:add_to_cart' product.id %}">
+                {% csrf_token %}
+                <label for="quantity_{{ product.id }}">数量: </label>
+                <input type="number" id="quantity_{{ product.id }}" name="quantity" value="1" min="1">
+                <button type="submit">カートに追加</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+</main>
+{% endblock %}

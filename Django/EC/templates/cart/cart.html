@@ -1,0 +1,50 @@
+<!-- cart/templates/cart/cart.html -->
+{% extends 'base.html' %}
+
+{% block header %}
+<header>
+    <a href="{% url 'product_list' %}">>> 商品リストに戻る</a>
+    <div class="logout_btn">
+        <a href="{% url 'accounts:logout' %}">ログアウト</a> 
+    </div>
+</header>
+{% endblock %}
+
+{% block main %} 
+<main class="site_main">
+    {% if cart_items %}
+    <h1>ショッピングカート</h1>
+    <table class="cart">
+        <thead>
+            <tr>
+                <th class="product">商品</th>
+                <th class="price">単価</th>
+                <th class="quantity">数量</th>
+                <th class="total">合計価格</th>
+                <th class="delete"></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+            <tr>
+                <td class="product">{{ item.product.name }}</td>
+                <td class="price">{{ item.product.price }}円</td>
+                <td class="quantity">{{ item.quantity }}</td>
+                <td class="total">{{ item.total }}円</td>
+                <td class="delete">
+                    <form action="{% url 'cart:remove_from_cart' item.product.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">削除</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p>合計金額: {{ total_price }}円</p>
+    {% else %}
+    <!-- カート内に商品がない場合の表示 -->
+    <h1>カートの中身が空です。</h1>
+    {% endif %}
+</main>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<main class="form_main">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+        <div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {{ field.errors }}
+        </div>
+        {% endfor %}
+        <div class="form_actions">
+            <button type="submit" class="btn btn-primary">作成</button>
+            <a href="{% url 'accounts:index' %}" class="btn btn-secondary">戻る</a>
+        </div>
+    </form>
+</main>
+{% endblock %}
