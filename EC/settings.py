@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-ok%$u@yj$*9+h$ktji)m2ffvpjpvb=8@esascq*ha@4q1lw+m+
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+CSRF_TRUSTED_ORIGINS = ['https://testwebsite-ec.azurewebsites.net']
+CSRF_COOKIE_SECURE = True  # HTTPSを使用している場合
 
 # Application definition
 
