@@ -56,6 +56,7 @@ h1, h2 {
     align-items: center;
 }
 
+
 .form_main .btn {
     display: block;
     width: 20%;
@@ -270,6 +271,16 @@ h1, h2 {
         padding-left: 10px;
     }
 
+    .form_main .btn-primary{
+        width: 40%;
+    }
+
+    .form_main form input[type="text"],
+    .form_main form input[type="password"],
+    .form_main form input[type="email"] {
+        width: 90%;
+    }
+
     .product_list {
         justify-content: flex-start; 
     }
@@ -293,9 +304,23 @@ h1, h2 {
     .cart td button {
         padding: 5px; 
     }
+
+    .site_main{
+        padding-top: 50px;
+    }
 }
 
 @media screen and (max-width: 480px) {
+    .form_main .btn-primary{
+        width: 50%;
+    }
+
+    .form_main form input[type="text"],
+    .form_main form input[type="password"],
+    .form_main form input[type="email"] {
+        width: 95%;
+    }
+
     .product_list {
         justify-content: flex-start; 
     }
@@ -316,5 +341,8 @@ h1, h2 {
     .cart td button {
         font-size: 0.8rem; 
         padding: 3px; 
+    }
+    .site_main{
+        padding-top: 40px;
     }
 }
