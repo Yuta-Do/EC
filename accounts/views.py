@@ -20,19 +20,16 @@ class IndexView(TemplateView):
 class SignupView(CreateView):
     form_class = SignUpForm
     template_name = "accounts/signup.html"
+    success_url = reverse_lazy("accounts:index")  # success_urlを設定
 
     def form_valid(self, form):
         response = super().form_valid(form)
         account_id = form.cleaned_data.get("account_id")
         password = form.cleaned_data.get("password1")
-        user = authenticate(self.request,account_id=account_id, password=password)
-        login(self.request, user)
+        user = authenticate(self.request, account_id=account_id, password=password)
+        if user is not None:
+            login(self.request, user)
         return response
-    
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return HttpResponseRedirect(reverse_lazy('product_list'))  
-        return super().dispatch(request, *args, **kwargs)
 
 # ログインビューを作成
 class LoginView(BaseLoginView):
